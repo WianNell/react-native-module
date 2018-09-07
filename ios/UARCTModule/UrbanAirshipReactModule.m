@@ -64,6 +64,15 @@ RCT_REMAP_METHOD(isUserNotificationsOptedIn,
     resolve(@(optedIn));
 }
 
+RCT_REMAP_METHOD(enableUserPushNotifications,
+                 enableUserPushNotifications_resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject) {
+
+    [[UAirship push] enableUserPushNotifications:^(BOOL success) {
+        resolve(@(success));
+    }];
+}
+
 RCT_EXPORT_METHOD(setNamedUser:(NSString *)namedUser) {
     namedUser = [namedUser stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     [UAirship namedUser].identifier = namedUser.length ? namedUser : nil;
