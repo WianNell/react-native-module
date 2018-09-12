@@ -62,10 +62,7 @@ RCT_EXPORT_METHOD(setUserNotificationsEnabled:(BOOL)enabled) {
     style.iconsEnabled = enabled;
     [UAirship messageCenter].style = style;
 
-    UAConfig *config = [UAConfig defaultConfig];
-    config.messageCenterStyleConfig = @"ua_inbox_style";
-
-    [UAirship takeOff:config];
+    [UAirship takeOff];
     [UAirship push].userPushNotificationsEnabled = enabled;
     [UAirship push].autobadgeEnabled = enabled;
 }
