@@ -47,7 +47,27 @@ RCT_EXPORT_METHOD(removeListeners:(NSInteger)count) {
 }
 
 RCT_EXPORT_METHOD(setUserNotificationsEnabled:(BOOL)enabled) {
+    //[UAirship push].userPushNotificationsEnabled = enabled;
+
+    UAMessageCenterStyle *style = [UAMessageCenterStyle style];
+
+    style.navigationBarColor = [UIColor colorWithRed:230 green:0 blue:0 alpha:1];
+    style.titleColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
+    style.tintColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
+
+    style.titleFont = [UIFont fontWithName:@"VodafoneRg" size:17.0];
+    style.cellTitleFont = [UIFont fontWithName:@"VodafoneRg" size:13.0];
+    style.cellDateFont = [UIFont fontWithName:@"VodafoneRg" size:12.0];
+
+    style.iconsEnabled = enabled;
+    [UAirship messageCenter].style = style;
+
+    UAConfig *config = [UAConfig defaultConfig];
+    config.messageCenterStyleConfig = @"ua_inbox_style";
+
+    [UAirship takeOff:config];
     [UAirship push].userPushNotificationsEnabled = enabled;
+    [UAirship push].autobadgeEnabled = enabled;
 }
 
 RCT_REMAP_METHOD(isUserNotificationsEnabled,
