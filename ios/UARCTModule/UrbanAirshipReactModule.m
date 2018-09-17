@@ -51,7 +51,7 @@ RCT_EXPORT_METHOD(setUserNotificationsEnabled:(BOOL)enabled) {
 
     UAMessageCenterStyle *style = [UAMessageCenterStyle style];
 
-    style.navigationBarColor = [UIColor colorWithRed:230 green:0 blue:0 alpha:1];
+    style.navigationBarColor = [UIColor colorWithRed:189 green:0 blue:0 alpha:1];
     style.titleColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
     style.tintColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
 
