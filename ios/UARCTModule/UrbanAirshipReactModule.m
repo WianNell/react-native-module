@@ -51,14 +51,6 @@ RCT_EXPORT_METHOD(setUserNotificationsEnabled:(BOOL)enabled) {
 
     UAMessageCenterStyle *style = [UAMessageCenterStyle style];
 
-    style.navigationBarColor = [UIColor colorWithRed:189 green:0 blue:0 alpha:1];
-    style.titleColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
-    style.tintColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
-
-    style.titleFont = [UIFont fontWithName:@"VodafoneRg" size:17.0];
-    style.cellTitleFont = [UIFont fontWithName:@"VodafoneRg" size:13.0];
-    style.cellDateFont = [UIFont fontWithName:@"VodafoneRg" size:12.0];
-
     style.iconsEnabled = enabled;
     [UAirship messageCenter].style = style;
 
